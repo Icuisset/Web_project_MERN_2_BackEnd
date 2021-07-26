@@ -1,7 +1,7 @@
 {
-  "name": "around-express",
+  "name": "news-explorer-api",
   "version": "1.0.0",
-  "description": "practicum project using express",
+  "description": "practicum final project api",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Icuisset/around-express.git"
+    "url": "https://github.com/Icuisset/news-explorer-api"
   },
   "author": "Isabelle Cuisset",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Icuisset/around-express/issues"
+    "url": "https://github.com/Icuisset/news-explorer-api/issues"
   },
-  "homepage": "https://github.com/Icuisset/around-express#readme",
+  "homepage": "https://github.com/Icuisset/news-explorer-api#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
