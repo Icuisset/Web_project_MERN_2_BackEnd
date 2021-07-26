@@ -2,7 +2,7 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-const { JWT_SECRET } = process.env;
+const { NODE_ENV, JWT_SECRET } = process.env;
 
 const handleAuthError = (res) => {
   res.status(401).send({ message: "Authorization Error" });
@@ -25,7 +25,7 @@ module.exports = (req, res, next) => {
     payload = jwt.verify(
       token,
       // eslint-disable-next-line comma-dangle
-      JWT_SECRET
+      NODE_ENV === 'production' ? JWT_SECRET : 'super-strong-secret'
     );
   } catch (err) {
     return handleAuthError(res);

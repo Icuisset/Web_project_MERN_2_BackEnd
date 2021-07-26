@@ -13,7 +13,7 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 
 const app = express();
-const { DB_CONNECT, PORT = 3000 } = process.env;
+const { PORT = 3000 } = process.env;
 
 const corsOptions = {
   origin: "*",
@@ -35,11 +35,10 @@ const { requestLog, errorLog } = require("./middleware/log/logger");
 const auth = require("./middleware/auth");
 const Error404 = require("./middleware/errors/Error400");
 
-// const uri =
-//  "mongodb+srv://isa:XEPhas731@@isabelledb.mltad.mongodb.net/arounddb?retryWrites=true&w=majority";
+const uri = "mongodb+srv://isa:XEPhas731@news-explorer.tkz1b.mongodb.net/news-explorer?retryWrites=true&w=majority";
 
 mongoose
-  .connect(DB_CONNECT, {
+  .connect(uri, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
