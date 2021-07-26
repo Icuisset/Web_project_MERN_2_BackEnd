@@ -51,7 +51,7 @@ mongoose
   .catch((err) => console.log(err));
 
 const usersRouter = require("./routes/users");
-const cardsRouter = require("./routes/cards");
+const articlesRouter = require("./routes/articles");
 
 const { signin, createUser } = require("./controllers/users");
 
@@ -78,15 +78,16 @@ app.post(
   "/signup",
   celebrate({
     body: Joi.object().keys({
+      name: Joi.string().required().min(2).max(30),
       email: Joi.string().required().email(),
-      password: Joi.string().required(),
+      password: Joi.string().required().min(3),
     }),
   }),
   createUser
 );
 
 app.use("/users", auth, usersRouter);
-app.use("/cards", auth, cardsRouter);
+app.use("/articles", auth, articlesRouter);
 
 app.get("*", () => {
   throw new Error404("requested resources not found");
