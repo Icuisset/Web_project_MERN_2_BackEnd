@@ -57,7 +57,7 @@ module.exports.createArticle = (req, res, next) => {
 
 /** DELETE /articles/:articleId — deletes a article by _id */
 module.exports.deleteArticle = (req, res, next) => {
-  Article.findById(req.params.articleId)
+  Article.findById(req.params.articleId).select('+owner')
     .then((article) => {
       if (!article) {
         throw new Error404('Article ID is not valid');
