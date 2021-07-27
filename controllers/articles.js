@@ -11,9 +11,9 @@ const Error500 = require("../middleware/errors/Error500");
 // eslint-disable-next-line no-multiple-empty-lines
 /** GET /cards — returns all cards */
 module.exports.getArticles = (req, res, next) => {
-  Article.find({})
-    .then((cards) => {
-      res.status(200).send(cards);
+  Article.find({ owner: req.user._id })
+    .then((articles) => {
+      res.status(200).send(articles);
     })
     .catch((err) => {
       console.log(err);
