@@ -13,7 +13,7 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 
 const app = express();
-const { PORT = 3000 } = process.env;
+const { NODE_ENV, DB_CONNECT, PORT = 3000 } = process.env;
 
 const corsOptions = {
   origin: "*",
@@ -35,7 +35,7 @@ const { requestLog, errorLog } = require("./middleware/log/logger");
 const auth = require("./middleware/auth");
 const Error404 = require("./middleware/errors/Error400");
 
-const uri = "mongodb+srv://isa:XEPhas731@news-explorer.tkz1b.mongodb.net/news-explorer?retryWrites=true&w=majority";
+const uri = NODE_ENV === 'production' ? DB_CONNECT : "mongodb://localhost:27017/news";
 
 mongoose
   .connect(uri, {
