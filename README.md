@@ -2,4 +2,7 @@
 backend folder for Practicum final project
 
 Link to API public address :
-http://api.news-explorer.info/
+https://api.news-explorer.info/
+
+Link to final published project : 
+https://news-explorer.info/
